@@ -1,0 +1,383 @@
+/* =========================================================
+   夜凌 Ryelin 个人主页样式表 (ryelin.css)
+   说明：本文件服务于本站全部手写页面（index / ark / misc / blog 等），
+   不依赖任何前端框架，纯 CSS 实现，便于日后自行修改。
+   ========================================================= */
+
+/* ---------- 全局基础样式 ---------- */
+* {
+  box-sizing: border-box; /* 让 padding/border 计入宽度，避免布局溢出 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* 使用系统自带字体，兼顾中文与英文显示，无需额外加载字体文件 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
+    "PingFang SC", "Hiragino Sans GB", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+
+/* ---------- 顶部导航栏 ---------- */
+.site-nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e1e4e8;
+  position: sticky; /* 滚动时固定在顶部 */
+  top: 0;
+  z-index: 10;
+}
+
+.site-nav .nav-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-nav .nav-brand {
+  font-weight: 700;
+  font-size: 18px;
+  color: #24292f;
+  text-decoration: none;
+}
+
+.site-nav .nav-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.site-nav .nav-links a {
+  color: #57606a;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.site-nav .nav-links a:hover,
+.site-nav .nav-links a.active {
+  color: #0969da; /* 悬停或当前页高亮为蓝色 */
+}
+
+/* ---------- 主体内容容器 ---------- */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+/* ---------- 标题层级 ---------- */
+h1 {
+  font-size: 30px;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 40px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #d0d7de; /* 区块标题下的分隔线 */
+}
+
+h3 {
+  font-size: 18px;
+  margin: 24px 0 8px;
+}
+
+/* ---------- 首页个人信息头部（照片 + 简介） ---------- */
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.profile .photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover; /* 裁剪填充，保证头像不变形 */
+  border-radius: 10px;
+  border: 1px solid #e1e4e8;
+  flex-shrink: 0;
+}
+
+.profile .intro {
+  flex: 1 1 320px;
+}
+
+.profile .intro p {
+  margin: 6px 0;
+}
+
+/* 副标题/说明文字使用灰色 */
+.muted {
+  color: #57606a;
+  font-size: 15px;
+}
+
+/* ---------- 列表样式 ---------- */
+ul.clean {
+  margin: 8px 0;
+  padding-left: 22px;
+}
+
+ul.clean li {
+  margin: 6px 0;
+}
+
+/* 嵌套列表（研究方向下的子项）保持紧凑 */
+ul.clean ul {
+  margin: 4px 0;
+}
+
+/* ---------- 链接 ---------- */
+a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 卡片区块（用于各条目） ---------- */
+.card {
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 16px 0;
+}
+
+.card .card-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.card .card-meta {
+  color: #57606a;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.card .card-body {
+  margin: 10px 0 0;
+}
+
+/* 论文条目中的外部链接小标签 */
+.tag-links a {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 14px;
+}
+
+/* =========================================================
+   以下为 ACGN 站特有排版：图片、图注、合作者、脚注等
+   ========================================================= */
+
+/* ---------- 图片与图注 ---------- */
+/* 标准插图：居中、限制最大宽度，避免在正文里显得过大 */
+figure.fig {
+  margin: 18px auto;
+  text-align: center;
+}
+
+figure.fig img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+}
+
+/* 两侧留白更多的窄图（母版要求“留一点页边距，不要填满”） */
+figure.fig.narrow img {
+  max-width: 70%;
+}
+
+/* 更小的图（例如“白毛博士2”要与图注左右分布） */
+figure.fig.small img {
+  max-width: 55%;
+}
+
+/* 图注：小字号、灰色、居中 */
+figure.fig figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #57606a;
+  text-align: center;
+}
+
+/* 图注在图片宽度范围内居中，且两侧留白 */
+figure.fig.narrow figcaption {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- 左右分布的图文（图小、注大） ---------- */
+.figure-side {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center; /* 图与注在垂直方向居中 */
+  margin: 18px 0;
+}
+
+.figure-side img {
+  width: 40%; /* 图片较小 */
+  max-width: 260px;
+  height: auto;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.figure-side .side-caption {
+  flex: 1 1 240px;
+  font-size: 19px; /* 图注字号放大 */
+  color: #24292f;
+}
+
+/* ---------- 合作者强调（加粗，接近小标题字体） ---------- */
+.collab {
+  font-size: 16px;
+  font-weight: 700;
+  color: #24292f;
+  margin: 10px 0 4px;
+}
+
+/* ---------- 小字居中说明 / 图注型文字 ---------- */
+.note {
+  font-size: 13px;
+  color: #57606a;
+  text-align: center;
+  margin: 6px 0 18px;
+}
+
+/* ---------- 删除线说明（居中缩小） ---------- */
+.strike-note {
+  text-align: center;
+  font-size: 13px;
+  color: #8b949e;
+  text-decoration: line-through;
+  margin: 6px 0 18px;
+}
+
+/* ---------- 浅色区块（文章中的引用/补充段落） ---------- */
+.block-muted {
+  background: #eef1f4;
+  border-left: 3px solid #d0d7de;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 20px 0;
+  color: #6e7781; /* 文字更浅一些 */
+  font-size: 14px;
+}
+
+.block-muted p {
+  margin: 6px 0;
+}
+
+/* ---------- 文章页（blog） ---------- */
+.article {
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+  padding: 28px 30px;
+}
+
+.article h1 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+/* 文章摘要：居中标题 + 比正文更大的页边距 */
+.article .abstract {
+  margin: 24px 0 32px;
+}
+
+.article .abstract .abstract-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.article .abstract p {
+  margin: 8px 0;
+  padding: 0 12%; /* 摘要两侧留白比正文大 */
+  color: #3d444d;
+}
+
+.article h4 {
+  font-size: 17px;
+  margin: 26px 0 8px;
+}
+
+/* 脚注文字：字号减小、居中 */
+.footnote {
+  font-size: 12px;
+  color: #8b949e;
+  text-align: center;
+  margin: 4px 0 18px;
+}
+
+/* 正文内联脚注标记（上标形式的小链接） */
+.fn-ref {
+  font-size: 12px;
+  vertical-align: super;
+  color: #0969da;
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  text-align: center;
+  color: #8b949e;
+  font-size: 13px;
+  padding: 24px 20px 40px;
+}
+
+/* ---------- 窄屏适配 ---------- */
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .profile .intro {
+    text-align: left;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  figure.fig.narrow img,
+  figure.fig.small img {
+    max-width: 100%;
+  }
+  figure.fig.narrow figcaption {
+    max-width: 100%;
+  }
+  .figure-side {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .figure-side img {
+    width: 70%;
+  }
+  .article {
+    padding: 20px 18px;
+  }
+  .article .abstract p {
+    padding: 0;
+  }
+}
