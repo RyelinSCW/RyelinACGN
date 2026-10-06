@@ -138,6 +138,11 @@ ul.clean ul {
   margin: 4px 0;
 }
 
+/* 列表项内的解释段落（不显示圆圈，作为条目的说明文字） */
+ul.clean li > p {
+  margin: 4px 0;
+}
+
 /* ---------- 链接 ---------- */
 a {
   color: #0969da;
@@ -246,6 +251,7 @@ figure.fig.narrow figcaption {
   flex: 1 1 240px;
   font-size: 19px; /* 图注字号放大 */
   color: #24292f;
+  text-align: center; /* 图注在自己的板块内居中 */
 }
 
 /* ---------- 合作者强调（加粗，接近小标题字体） ---------- */
