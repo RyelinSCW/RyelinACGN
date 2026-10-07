@@ -153,6 +153,12 @@ a:hover {
   text-decoration: underline;
 }
 
+/* 只做下划线、不变成蓝色的链接（母版特殊要求） */
+a.link-plain {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* ---------- 卡片区块（用于各条目） ---------- */
 .card {
   background: #ffffff;
