@@ -224,6 +224,17 @@ figure.fig.half img {
   max-width: 50%;
 }
 
+/* 母版要求：图片宽度改为 0.6 LineWidth（图注也在图片宽度内居中） */
+figure.fig.w60 img {
+  max-width: 60%;
+}
+
+figure.fig.w60 figcaption {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* 图注：小字号、灰色、居中 */
 figure.fig figcaption {
   margin-top: 8px;
