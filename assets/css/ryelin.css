@@ -219,6 +219,11 @@ figure.fig.small img {
   max-width: 55%;
 }
 
+/* 母版要求：缩小图片到 0.5 LineWidth（半行宽） */
+figure.fig.half img {
+  max-width: 50%;
+}
+
 /* 图注：小字号、灰色、居中 */
 figure.fig figcaption {
   margin-top: 8px;
